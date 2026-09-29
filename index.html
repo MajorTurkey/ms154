@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Station 1.5.4</title>
+<style>
+  body { margin: 0; background: #f4efe4; color: #1c1915; font: 22px/1.45 Georgia, "Times New Roman", serif; }
+  main { max-width: 40rem; margin: 0 auto; padding: 1.25rem 1.1rem 3rem; }
+  h1 { font-size: 2rem; line-height: 1.15; margin: 0 0 0.4rem; }
+  h2 { font-size: 1.35rem; margin: 1.6rem 0 0.4rem; }
+  p, li { font-size: 1.15rem; }
+  a.btn { display: block; margin: 1rem 0; padding: 0.9rem 1rem; background: #1c1915; color: #f4efe4; text-decoration: none; font-size: 1.2rem; text-align: center; }
+  a { color: #6b3a12; }
+  ol { padding-left: 1.3rem; }
+  li { margin: 0.55rem 0; }
+  .note { background: #fff; border: 2px solid #1c1915; padding: 0.8rem 1rem; }
+</style>
+</head>
+<body>
+<main>
+  <p>Kindle Movie Station</p>
+  <h1>Version 1.5.4</h1>
+  <p>These are the notes from the chat, so you can read them on the tablet. You do not need the Grok app on this tablet.</p>
+  <a class="btn" href="https://github.com/MajorTurkey/movie-station/commit/49f9ca9567f059050ae13ec435b68c6a9490de27">Open the latest code</a>
+  <p>Repo: github.com/MajorTurkey/movie-station</p>
+  <h2>What changed</h2>
+  <p>The dash cam no longer guesses how many seconds until a car reaches the screen.</p>
+  <ol>
+    <li><strong>Distance and place.</strong> Each box shows how far the vehicle is, from where it sits in the picture.</li>
+    <li><strong>Hood.</strong> The still band at the bottom, up to where the road starts moving, is the hood. Those boxes are ignored. A dashed line marks that line once it settles.</li>
+    <li><strong>Oncoming traffic.</strong> The left side of a forward camera is the important side. It is checked more often than the rest of the road.</li>
+    <li><strong>Their speed.</strong> For an oncoming car, speed is how fast the gap is shrinking, minus your own speed. A car one lane to the left also corrects a bad assumed width.</li>
+    <li><strong>Close cars.</strong> An oncoming car that is still closing turns the picture amber under about 28 meters, and red under about 12 meters. That is distance, not a countdown.</li>
+  </ol>
+  <h2>What you still need</h2>
+  <div class="note">
+    <p>Their speed only shows when the tablet knows your speed. The Bluetooth car-speed plug is the accurate source. Without it you still get distance, but not their mph.</p>
+    <p>This update is the source code. It is not a new install file yet. The tablet keeps the old app until a new build is installed.</p>
+  </div>
+  <h2>Why the old number was wrong</h2>
+  <p>Seconds-to-the-screen treats the other car as if it is catching you from behind. Oncoming traffic is coming the other way, so both speeds add. Distance from the box, plus your own speed, is the useful reading.</p>
+</main>
+</body>
+</html>
